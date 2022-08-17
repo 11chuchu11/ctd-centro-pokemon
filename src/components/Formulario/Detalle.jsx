@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { DataContext } from "../../context/ContextoFormulario";
 
 const Detalle = () => {
   // Aqui deberíamos obtener los datos del formulario para poder mostrarlo en
   // la vista previa.
+  const {dataPokemon, setDataPokemon} = useContext(DataContext)
+
+  useEffect(()=>{},[dataPokemon])
 
   return (
     <div className="detalle-formulario">
@@ -12,15 +16,15 @@ const Detalle = () => {
       <section className="datos-cliente">
         <h4>Datos del Entrenador</h4>
         <div className="fila">
-          <p>Nombre:</p>
-          <p>Apellido:</p>
-          <p>Email:</p>
+          <p>Nombre: {dataPokemon.nombre}</p>
+          <p>Apellido: {dataPokemon.apellido}</p>
+          <p>Email: {dataPokemon.email}</p>
         </div>
       </section>
       <section className="datos-cliente">
         <h4>Datos del Pokémon</h4>
         <div className="fila">
-          <p>Nombre:</p>
+          <p>Nombre: {dataPokemon.nombrePokemon}</p>
         </div>
       </section>
       <button
